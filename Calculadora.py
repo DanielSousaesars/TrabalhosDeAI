@@ -37,10 +37,15 @@ def calculadora():
             while True:
                 try:
                     num1 = float(input("Digite o primeiro número: "))
+                    break
+                except ValueError:
+                    print("Valor Inválido!")
+            while True:
+                try:
                     num2 = float(input("Digite o segundo número: "))
                     break
                 except ValueError:
-                    print("Valores Inválidos!")
+                    print("Valor Inválido!")
             if operação == "subtração":
                 result = subtração(num1, num2)
                 print("Resultado da subtração: " + str(result))
