@@ -32,15 +32,20 @@ def add_histórico(operação, num1, num2, result):
 # Função principal
 def calculadora():
     while True:
-        operação = input("Escolha a operação: ")
+        operação = input ("Escolha a operação: ")
         if operação in ["subtração", "soma", "multiplicação", "divisão"]:
-            num1 = float(input("Digite o primeiro número: "))
-            num2 = float(input("Digite o segundo número: "))
+            while True:
+                try:
+                    num1 = float(input("Digite o primeiro número: "))
+                    num2 = float(input("Digite o segundo número: "))
+                    break
+                except ValueError:
+                    print("Valores Inválidos!")
             if operação == "subtração":
                 result = subtração(num1, num2)
                 print("Resultado da subtração: " + str(result))
             elif operação == "soma":
-                result = soma(num1, num2)
+                result =  soma(num1, num2)
                 print("Resultado da soma: " + str(result))
             elif operação == "multiplicação":
                 result = multiplicação(num1, num2)
@@ -51,7 +56,7 @@ def calculadora():
             add_histórico(operação, num1, num2, result)
         elif operação == "sair":
             print("A sair da calculadora...")
-            break  # Sair do loop e fechar o programa
+            break # Sair do loop e fechar o programa
         elif operação == "histórico":
             print("Histórico de operações:")
             for item in histórico:
